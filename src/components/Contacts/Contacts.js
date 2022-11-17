@@ -1,14 +1,14 @@
 //import PropTypes from 'prop-types';
 import { useDispatch, useSelector} from 'react-redux';
-import { deleteContacts } from 'redux/contactsSlice';
-import { getContacts } from 'redux/selectors';
+import { deleteContacts } from 'redux/operations';
+import { selectContacts } from 'redux/selectors';
 
 import { ListContacts, ItemContacts, Btn } from './Contacts.styled';
 import { setStatusFilter } from 'redux/filterSlice';
 
 export const FormContacts = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const filter = useSelector(setStatusFilter);
 
   //const normalizedFilter = filter.toLowerCase();
