@@ -5,6 +5,7 @@ import { selectContacts } from 'redux/selectors';
 import { addContacts } from 'redux/operations';
 
 import { nanoid } from "nanoid";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import { Formik, Form, Field } from 'formik';
 
@@ -45,9 +46,13 @@ export const FormLabel = () => {
     const handleSubmit = ( values, { resetForm }) => {
     console.log(values);
     
-    values.id = nanoid();
-        dispatch(addContacts( values ));
-        resetForm();
+        values.id = nanoid();
+        contacts.find(contact => contact.name.toLowerCase() === values.name.toLowerCase())
+       ? Notify.info('Contacts is already in list-contacts')
+       
+       : dispatch(addContacts( values )) && resetForm();
+        //dispatch(addContacts( values ));
+        
         
   };
 
