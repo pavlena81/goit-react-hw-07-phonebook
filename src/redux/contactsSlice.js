@@ -37,14 +37,14 @@ const contactsSlice = createSlice({
     [fetchContacts.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.items = action.payload;
+      state.contacts = action.payload;
     },
     [fetchContacts.rejected]: handleRejected,
     [addContacts.pending]: handlePending,
     [addContacts.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.items.push(action.payload);
+      state.contacts.push(action.payload);
     },
     [addContacts.rejected]: handleRejected,
     [deleteContacts.pending]: handlePending,
@@ -54,7 +54,7 @@ const contactsSlice = createSlice({
       const index = state.contacts.findIndex(
         contact => contact.id === action.payload.id
       );
-      state.items.splice(index, 1);
+      state.contacts.splice(index, 1);
     },
     [deleteContacts.rejected]: handleRejected,
   },
