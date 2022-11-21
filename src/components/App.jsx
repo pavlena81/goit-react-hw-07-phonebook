@@ -10,7 +10,7 @@ import { Container, Box, Title, SubTitle} from 'components/App.styled';
 import { FcContacts } from 'react-icons/fc';
 import { FcMultipleSmartphones } from 'react-icons/fc';
 import { selectError, selectIsLoading } from 'redux/selectors';
-
+import { Loader } from './Loader/Loader';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -45,7 +45,7 @@ export const App = () => {
           <Filter />
           
          <FormContacts/>  
-         {isLoading && !error && <b>Request in progress...</b>} 
+         {isLoading && !error && <Loader/>} 
       </Container>
     </Box> 
    );
