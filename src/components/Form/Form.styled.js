@@ -11,9 +11,9 @@ padding-top: 20px;
 export const Btn = styled.button`
     font-size: 16px;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 50px;
     border: none;
-    background-color: #D6EAF8;
+    background-color: #BEE1E6;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     
     cursor: pointer;
